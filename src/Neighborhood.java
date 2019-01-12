@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Neighborhood {
-    private static final int SAFTY_BUFFER = 0;
+    private static final int SAFTY_BUFFER = 100;
     private final int properties_horizontal;
     private final int properties_vertical;
     int length;
@@ -11,7 +11,7 @@ public class Neighborhood {
 
     public Neighborhood(int biggest_property_length, int biggest_property_height, int properties_horizontal, int properties_vertical) {
         this.length = biggest_property_length * properties_horizontal + SAFTY_BUFFER;
-        this.height = this.length; //2 * (biggest_property_height * properties_vertical + SAFTY_BUFFER);
+        this.height = biggest_property_height * properties_vertical + SAFTY_BUFFER;
         this.properties_horizontal = properties_horizontal;
         this.properties_vertical = properties_vertical;
 

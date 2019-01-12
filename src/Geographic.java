@@ -14,7 +14,7 @@ public class Geographic {
     public Geographic(int length, int height, int NPropertiesInRow, int NPropertiesInColumn){
         this.length = length;
         this.height = height;
-        map = new int[length][height];
+        map = new int[height][length];
         houses = new ArrayList<>();
         taken = new boolean[NPropertiesInRow][NPropertiesInColumn];
         for(int i = 0; i < NPropertiesInRow; i++) {
@@ -27,9 +27,9 @@ public class Geographic {
     public Geographic(Geographic geographic) {
         this.length = geographic.length;
         this.height = geographic.height;
-        this.map = new int[geographic.length][geographic.height];
-        for(int i = 0; i < geographic.length; i++){
-            for(int j = 0; j < geographic.height; j++){
+        this.map = new int[geographic.height][geographic.length];
+        for(int i = 0; i < geographic.height; i++){
+            for(int j = 0; j < geographic.length; j++){
                 this.map[i][j] = geographic.map[i][j]       ;
             }
         }
@@ -60,7 +60,7 @@ public class Geographic {
             Geographic geographic = new Geographic(this);
             try {
                 res.add(geographic.placeProperty(propertyUnit, p));
-            } catch (Exception e){ e.printStackTrace();/* no legal solution - do nothing */ }
+            } catch (Exception e){ /*e.printStackTrace(); no legal solution - do nothing */ }
         }
         return res;
     }
@@ -72,7 +72,11 @@ public class Geographic {
                 downiest = point.x;
             if(point.y > rightest)
                 rightest = point.y;
-            if(map[point.x][point.y] != 0){
+            try{
+                if(map[point.x][point.y] != 0) {
+                    throw new notLegalLocation();
+                }
+            } catch (ArrayIndexOutOfBoundsException e){
                 throw new notLegalLocation();
             }
             map[point.x][point.y] = propertyUnit.id;
@@ -105,7 +109,7 @@ public class Geographic {
         if(line > 0){
             line_to_start = map.length - 1;
             for(int i = map.length - 1; i > 0; i--){
-                if(map[i][rightest + propertyUnit.minDistUp] != 0){
+                if(map[i - propertyUnit.minDistUp][rightest + propertyUnit.minDistLeft] != 0){
                     line_to_start = i + 1;
                     break;
                 }
@@ -114,7 +118,11 @@ public class Geographic {
 
         Point start = new Point(line_to_start, rightest + propertyUnit.minDistLeft + 1);
         res.add(start);
-
+        for(int i = -2; i < 2; i++){
+            for(int j = -2; j < 2; j++){
+                res.add(new Point(start.x + i, start.y + j));
+                }
+            }
         return res;
     }
 

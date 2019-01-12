@@ -45,7 +45,7 @@ public class FindNeighborhood {
         neighborhood.addHouse(p);
         neighborhood.addHouse(new PropertyYoungCouple(2));
         neighborhood.addHouse(new PropertyYoungCouple(3));
-//        neighborhood.addHouse(new PropertyYoungCouple(4));
+        neighborhood.addHouse(new PropertyYoungCouple(4));
 //        neighborhood.addHouse(new PropertyYoungCouple(5));
 //        neighborhood.addHouse(new PropertyYoungCouple(6));
 //        neighborhood.addHouse(new PropertyYoungCouple(7));
@@ -54,13 +54,16 @@ public class FindNeighborhood {
         neighborhood.placeAllPropertiesWrapper();
 
 
+        PrintSolution(neighborhood, 0);
+        PrintSolution(neighborhood, 100);
+        PrintSolution(neighborhood, 200);
+        PrintSolution(neighborhood, 300);
+        System.out.print("Number of solutions: " + neighborhood.solutions.size() + "\n");
+    }
 
-
-
-
-
+    private static void PrintSolution(Neighborhood neighborhood, int index) {
         try {
-            Geographic sol = neighborhood.solutions.get(0);
+            Geographic sol = neighborhood.solutions.get(index);
             int[][] yourmatrix = sol.map;
             BufferedImage image = new BufferedImage(yourmatrix[0].length, yourmatrix.length, 1);
             for(int i=0; i < yourmatrix.length; i++) {
@@ -71,7 +74,7 @@ public class FindNeighborhood {
                     image.setRGB(j, i, newColor.getRGB());
                 }
             }
-            File output = new File("GrayScale.jpg");
+            File output = new File("GrayScale" + index + ".jpg");
 
                 ImageIO.write(image, "jpg", output);
         } catch (IOException e) {
@@ -79,6 +82,6 @@ public class FindNeighborhood {
         } catch (Exception e){
             e.printStackTrace();
         }
-//        neighborhood.print();
     }
+
 }

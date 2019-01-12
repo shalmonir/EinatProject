@@ -43,14 +43,6 @@ public class Neighborhood {
         return placeAllProperties(unSubmittedProperties, newRes);
         }
 
-    public int getDiversity(){
-        return 0;
-    }
-
-    public int getNotUsedSpace(){
-        return 100000;
-    }
-
     public void placeAllPropertiesWrapper() {
         Geographic init = new Geographic(length, height, properties_horizontal, properties_vertical);
 //        Geographic initRotate = new Geographic(length, height, max_radius, min_radius, 2, 2);
@@ -69,5 +61,19 @@ public class Neighborhood {
         for(Geographic s: solutions){
             s.cleanZeros();
         }
+    }
+
+    public Geographic getBestSpaceUse(){
+        int min = length * height;
+        Geographic sol = solutions.get(0);
+        for(Geographic g: solutions){
+            int temp = g.getNotUsedSpace();
+            if(temp < min){
+                min = temp;
+                sol = g;
+            }
+        }
+        System.out.print("Best space use = " + min + " Non uses 5cm squares = " + (min * 25) / (100 * 100) + " meters^2 \n");
+        return sol;
     }
 }

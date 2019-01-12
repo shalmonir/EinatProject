@@ -4,8 +4,7 @@ import java.util.ArrayList;
  * Created by Nir on 11/01/2019.
  */
 public class PropertyYoungCouple extends IPropertyUnit {
-    // LB = left bottom
-    Point grainLB;
+
 
     PropertyYoungCouple(int id){
         this.id = id;
@@ -15,8 +14,17 @@ public class PropertyYoungCouple extends IPropertyUnit {
         minDistRight = FiveCmConverter.convert(1115);
     }
 
+    public PropertyYoungCouple(PropertyYoungCouple propertyYoungCouple) {
+        this.id = propertyYoungCouple.id;
+        minDistLeft = propertyYoungCouple.minDistLeft;
+        minDistUp = propertyYoungCouple.minDistUp;
+        minDistDown = propertyYoungCouple.minDistDown;
+        minDistRight = propertyYoungCouple. minDistRight;
+    }
+
     @Override
     public ArrayList<Point> getShapeFromPoint(Point point) {
+        grainLB = point;
         ArrayList<Point> res = new ArrayList<>();
         point.moveCurrentPosition(FiveCmConverter.convert(375), 0, 0, FiveCmConverter.convert(330));
         FillArea(point, res, 330, 1175);
@@ -27,32 +35,19 @@ public class PropertyYoungCouple extends IPropertyUnit {
         return res;
     }
 
-    private void FillArea(Point point, ArrayList<Point> res, int height, int width) {
-        for(int line = point.x; line > point.x - FiveCmConverter.convert(height); line--){
-            for(int col = point.y; col < point.y + FiveCmConverter.convert(width); col++){
-                res.add(new Point(line, col ));
-            }
-        }
-    }
-
     @Override
     public IPropertyUnit rotate() {
-        return null;
+        return new PropertyYoungCouple(this);
     }
 
     @Override
     public ArrayList<IPropertyUnit> getRotates() {
         ArrayList<IPropertyUnit> res = new ArrayList<>();
-        res.add(this);
+        res.add(new PropertyYoungCouple(this));
         return res;
     }
 
-    @Override
-    public Point getFirstLocation() {
-        return new Point(minDistUp, minDistLeft);
-    }
-
-    @Override
+    /*@Override
     public int getWidth() {
         return FiveCmConverter.convert(1415);
     }
@@ -60,5 +55,5 @@ public class PropertyYoungCouple extends IPropertyUnit {
     @Override
     public int getHeight() {
         return FiveCmConverter.convert(1480);
-    }
+    }*/
 }

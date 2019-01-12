@@ -14,6 +14,11 @@ public class Point {
         this.y = y - left + right;
     }
 
+    public void moveCurrentPositionWith5CmConvert(int left, int right, int up, int down) {
+        this.x = x + FiveCmConverter.convert(down) - FiveCmConverter.convert(up);
+        this.y = y - FiveCmConverter.convert(left) + FiveCmConverter.convert(right);
+    }
+
     public void print(){
         System.out.print("(" + x + ", " + y + ")\n");
     }

@@ -8,57 +8,47 @@ public class FindNeighborhood {
 
     public static void main(String[] args){
         System.out.print(">>> Start \n");
-        /*
-        int length_in_meters = 20;
-        int height_in_meters = 20;
-        int max_radius = 5;
-        int min_radius = 3;
-        int properties_horizontal = 2;
-        int properties_vertical = 2;
-        Neighborhood neighborhood = new Neighborhood(length_in_meters, height_in_meters, max_radius, min_radius,
-                properties_horizontal, properties_vertical);
-        neighborhood.addHouse(new SimpleProperty(1));
-        neighborhood.addHouse(new SimpleProperty(2));
-        neighborhood.addHouse(new SimpleProperty(3));
-        neighborhood.addHouse(new SimpleProperty(4));
-        neighborhood.placeAllPropertiesWrapper();
-        neighborhood.print();
-        */
+//        Neighborhood neighborhood = CreateBasicQuadNeighborhood();
+//        Print45Solutions(neighborhood);
+        Neighborhood n = CreateBasicUnoNeighborhood();
+        PrintSolution(n, 0);
+    }
 
-
-
-
-
-
-
-
-
-
-        // first property try :)
-        IPropertyUnit p = new PropertyYoungCouple(1);
-        int biggest_property_width = p.getWidth();
-        int biggest_property_height = p.getHeight();
+    private static Neighborhood CreateBasicUnoNeighborhood() {
+        IPropertyUnit x = new PropertyLaterCouple(3);
+        int biggest_property_width = x.getWidth();
+        int biggest_property_height = x.getHeight();
 
         int properties_horizontal = 2;
         int properties_vertical = 2;
         Neighborhood neighborhood = new Neighborhood(biggest_property_height, biggest_property_width, properties_horizontal, properties_vertical);
-        neighborhood.addHouse(p);
-        neighborhood.addHouse(new PropertyYoungCouple(2));
-        neighborhood.addHouse(new PropertyYoungCouple(3));
-        neighborhood.addHouse(new PropertyYoungCouple(4));
-//        neighborhood.addHouse(new PropertyYoungCouple(5));
-//        neighborhood.addHouse(new PropertyYoungCouple(6));
-//        neighborhood.addHouse(new PropertyYoungCouple(7));
-//        neighborhood.addHouse(new PropertyYoungCouple(8));
-//        neighborhood.addHouse(new PropertyYoungCouple(9));
+        neighborhood.addHouse(x);
         neighborhood.placeAllPropertiesWrapper();
+        return neighborhood;
+    }
 
-
-        PrintSolution(neighborhood, 0);
-        PrintSolution(neighborhood, 100);
-        PrintSolution(neighborhood, 200);
-        PrintSolution(neighborhood, 300);
+    private static void Print45Solutions(Neighborhood neighborhood) {
+        for(int i=0; i < 45; i++)
+            PrintSolution(neighborhood, i);
         System.out.print("Number of solutions: " + neighborhood.solutions.size() + "\n");
+        neighborhood.getBestSpaceUse();
+    }
+
+    private static Neighborhood CreateBasicQuadNeighborhood() {
+        IPropertyUnit first_fam = new PropertyFamilyOfThree(5);
+        IPropertyUnit fiveFamily = new PropertyFamilyOfFive(3);
+        int biggest_property_width = fiveFamily.getWidth();
+        int biggest_property_height = fiveFamily.getHeight();
+
+        int properties_horizontal = 2;
+        int properties_vertical = 2;
+        Neighborhood neighborhood = new Neighborhood(biggest_property_height, biggest_property_width, properties_horizontal, properties_vertical);
+        neighborhood.addHouse(first_fam);
+        neighborhood.addHouse(new PropertyYoungCouple(2));
+        neighborhood.addHouse(fiveFamily);
+        neighborhood.addHouse(new PropertyLaterCouple(4));
+        neighborhood.placeAllPropertiesWrapper();
+        return neighborhood;
     }
 
     private static void PrintSolution(Neighborhood neighborhood, int index) {
@@ -74,7 +64,7 @@ public class FindNeighborhood {
                     image.setRGB(j, i, newColor.getRGB());
                 }
             }
-            File output = new File("GrayScale" + index + ".jpg");
+            File output = new File("../GrayScalesEinat/GrayScale" + index + ".jpg");
 
                 ImageIO.write(image, "jpg", output);
         } catch (IOException e) {

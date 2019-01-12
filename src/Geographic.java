@@ -102,27 +102,52 @@ public class Geographic {
 
     // Constrains related to the general area
     public Collection<Point> getAllCandidateLocationPoints(IPropertyUnit propertyUnit){
-        ArrayList<Point> res = new ArrayList<>();
-        int line = getCurrentLine();
-        int Column = getCurrentColumn();
-        int line_to_start = propertyUnit.minDistUp + 1;
-        if(line > 0){
-            line_to_start = map.length - 1;
-            for(int i = map.length - 1; i > 0; i--){
-                if(map[i - propertyUnit.minDistUp][rightest + propertyUnit.minDistLeft] != 0){
-                    line_to_start = i + 1;
-                    break;
+        try {
+            ArrayList<Point> res = new ArrayList<>();
+            int line = getCurrentLine();
+            int Column = getCurrentColumn();
+            int line_to_start = propertyUnit.minDistUp + 1;
+            if (line > 0) {
+                line_to_start = map.length - 1;
+                boolean found = false;
+                for (int i = map.length - 1; i > 0; i--) {
+                    for (int col = rightest + propertyUnit.minDistLeft; col < rightest + propertyUnit.minDistLeft + propertyUnit.getWidth(); col++) {
+                        if (map[i - propertyUnit.minDistUp][col] != 0) {
+                            line_to_start = i + 1;
+                            found = true;
+                            break;
+                        }
+                    }
+                    //                if(map[i - propertyUnit.minDistUp][rightest + propertyUnit.minDistLeft] != 0){}
+                    if (found) {
+                        break;
+                    }
                 }
             }
-        }
 
-        Point start = new Point(line_to_start, rightest + propertyUnit.minDistLeft + 1);
-        res.add(start);
-        for(int i = -2; i < 2; i++){
-            for(int j = -2; j < 2; j++){
-                res.add(new Point(start.x + i, start.y + j));
+            Point start = new Point(line_to_start, rightest + propertyUnit.minDistLeft + 1);
+            res.add(start);
+            for (int i = -1; i < 1; i++) {
+                for (int j = -1; j < 1; j++) {
+                    res.add(new Point(start.x + i, start.y + j));
                 }
             }
+            return res;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return new ArrayList<Point>();
+        }
+    }
+
+    public int getDiversity(){
+        return 0;
+    }
+
+    public int getNotUsedSpace(){
+        int res = 0;
+        for(int[] line: map)
+            for(int num: line)
+                if(num == 0)
+                    res++;
         return res;
     }
 

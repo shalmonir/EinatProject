@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73009b6f-15a7-4766-9e1b-cc85d322f79a" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/try1/Geographic$notLegalLocation.class" afterPath="$PROJECT_DIR$/out/production/try1/Geographic$notLegalLocation.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/try1/Geographic.class" afterPath="$PROJECT_DIR$/out/production/try1/Geographic.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/try1/IPropertyUnit.class" afterPath="$PROJECT_DIR$/out/production/try1/IPropertyUnit.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/try1/IPropertyUnit.class" afterPath="$PROJECT_DIR$/out/production/try1/IPropertyUnit.class" />
+>>>>>>> 528ccb79c4dbbb3f052b153d54b98e2215ef59b8
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Geographic.java" afterPath="$PROJECT_DIR$/src/Geographic.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/IPropertyUnit.java" afterPath="$PROJECT_DIR$/src/IPropertyUnit.java" />
     </list>
@@ -36,7 +40,11 @@
         <entry file="file://$PROJECT_DIR$/src/Neighborhood.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="183">
+<<<<<<< HEAD
               <caret line="51" column="63" lean-forward="false" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
+=======
+              <caret line="51" column="63" lean-forward="true" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
+>>>>>>> 528ccb79c4dbbb3f052b153d54b98e2215ef59b8
               <folding />
             </state>
           </provider>
@@ -83,15 +91,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IPropertyUnit.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="IPropertyUnit.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/IPropertyUnit.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="533">
               <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+=======
+            <state relative-caret-position="482">
+              <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+>>>>>>> 528ccb79c4dbbb3f052b153d54b98e2215ef59b8
               <folding>
                 <element signature="e#810#811#0" expanded="true" />
                 <element signature="e#866#867#0" expanded="true" />
               </folding>
+<<<<<<< HEAD
             </state>
           </provider>
         </entry>
@@ -102,6 +116,8 @@
             <state relative-caret-position="17">
               <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
               <folding />
+=======
+>>>>>>> 528ccb79c4dbbb3f052b153d54b98e2215ef59b8
             </state>
           </provider>
         </entry>
@@ -110,7 +126,11 @@
         <entry file="file://$PROJECT_DIR$/src/PropertyFamilyOfFive.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="553">
+<<<<<<< HEAD
               <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+=======
+              <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+>>>>>>> 528ccb79c4dbbb3f052b153d54b98e2215ef59b8
               <folding />
             </state>
           </provider>
@@ -719,7 +739,11 @@
     <entry file="file://$PROJECT_DIR$/src/PropertyFamilyOfFive.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="553">
+<<<<<<< HEAD
           <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+=======
+          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+>>>>>>> 528ccb79c4dbbb3f052b153d54b98e2215ef59b8
           <folding />
         </state>
       </provider>
@@ -727,7 +751,11 @@
     <entry file="file://$PROJECT_DIR$/src/Neighborhood.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
+<<<<<<< HEAD
           <caret line="51" column="63" lean-forward="false" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
+=======
+          <caret line="51" column="63" lean-forward="true" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
+>>>>>>> 528ccb79c4dbbb3f052b153d54b98e2215ef59b8
           <folding />
         </state>
       </provider>
@@ -768,12 +796,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/IPropertyUnit.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="533">
           <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+=======
+        <state relative-caret-position="482">
+          <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+>>>>>>> 528ccb79c4dbbb3f052b153d54b98e2215ef59b8
           <folding>
             <element signature="e#810#811#0" expanded="true" />
             <element signature="e#866#867#0" expanded="true" />
           </folding>
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -782,6 +816,8 @@
         <state relative-caret-position="17">
           <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
           <folding />
+=======
+>>>>>>> 528ccb79c4dbbb3f052b153d54b98e2215ef59b8
         </state>
       </provider>
     </entry>

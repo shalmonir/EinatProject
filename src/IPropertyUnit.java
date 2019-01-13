@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public abstract class IPropertyUnit {
     int id;
+    int rotate;
 
     public int minDistLeft;
     public int minDistUp;
@@ -24,9 +25,7 @@ public abstract class IPropertyUnit {
         minDistDown = old_r;
         minDistLeft = old_d;
         minDistUp = old_l;
-
-
-
+        rotate = num;
         return null;
     }
 
@@ -44,7 +43,7 @@ public abstract class IPropertyUnit {
     public void FillArea(Point point, ArrayList<Point> res, int height, int width) {
         for(int line = point.x; line > point.x - FiveCmConverter.convert(height); line--){
             for(int col = point.y; col < point.y + FiveCmConverter.convert(width); col++){
-                res.add(new Point(line, col ));
+                res.add(new Point(line, col));
             }
         }
     }

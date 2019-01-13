@@ -74,7 +74,8 @@ public class Geographic {
                 rightest = point.y;
             try{
                 if(map[point.x][point.y] != 0) {
-                    throw new notLegalLocation();
+                    if(map[point.x][point.y] != propertyUnit.id)
+                        throw new notLegalLocation();
                 }
             } catch (ArrayIndexOutOfBoundsException e){
                 throw new notLegalLocation();
